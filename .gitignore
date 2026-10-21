@@ -1,0 +1,118 @@
+# FraudShield AI
+# .NET, Python, Azure, Terraform, and local development
+
+# Operating system
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET build artifacts
+**/bin/
+**/obj/
+TestResults/
+**/TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# .NET local tooling
+.dotnet/
+.nuget/
+artifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+htmlcov/
+.coverage
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+secrets/
+*.secret
+*.secrets
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Azure local development
+local.settings.json
+.azure/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Keep Terraform provider lock files tracked
+!**/.terraform.lock.hcl
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Local datasets and model artifacts
+data/raw/
+data/interim/
+data/processed/
+models/artifacts/
+*.parquet
+*.feather
+*.joblib
+*.pkl
+*.onnx
+
+# Coverage and generated reports
+coverage/
+coverage.xml
+reports/generated/
+
+# Local deployment overrides
+appsettings.Development.local.json
+appsettings.Production.local.json
+docker-compose.override.yml
+
+# Generated infrastructure outputs
+terraform-output.json

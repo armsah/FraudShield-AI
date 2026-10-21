@@ -1,0 +1,176 @@
+# FraudShield AI — Release Manifest Template
+
+#
+
+# Document: contracts/release-manifest.template.yaml
+
+# Version: 1.0.0
+
+# Status: Proposed — P0 Architecture Baseline
+
+#
+
+# This file is a TEMPLATE, not an approved production release.
+
+#
+
+# Replace all REPLACE_* placeholders before release.
+
+# Do not store passwords, access tokens, private keys, or customer PII here.
+
+# References to evidence must point to controlled, access-restricted storage.
+
+#
+
+# Release approval requires successful evaluation and security gates.
+
+schema_version: "1.0.0"
+
+release:
+release_id: "REPLACE_RELEASE_ID"
+release_version: "REPLACE_RELEASE_VERSION"
+release_type: "application"
+environment: "development"
+status: "draft"
+
+created_at: "REPLACE_UTC_TIMESTAMP"
+created_by: "REPLACE_RELEASE_OWNER"
+
+description: "REPLACE_RELEASE_DESCRIPTION"
+
+source:
+repository: "https://github.com/armsah/FraudShield-AI"
+branch: "main"
+commit_sha: "REPLACE_FULL_COMMIT_SHA"
+build_id: "REPLACE_BUILD_ID"
+
+artifacts:
+application:
+name: "fraudshield-api"
+version: "REPLACE_APPLICATION_VERSION"
+image_reference: "REPLACE_CONTAINER_IMAGE_REFERENCE"
+image_digest: "REPLACE_IMMUTABLE_IMAGE_DIGEST"
+
+model:
+name: "fraudshield-risk-model"
+version: "REPLACE_MODEL_VERSION"
+registry_reference: "REPLACE_MODEL_REGISTRY_REFERENCE"
+artifact_digest: "REPLACE_MODEL_ARTIFACT_DIGEST"
+
+policy:
+name: "fraudshield-risk-policy"
+version: "REPLACE_POLICY_VERSION"
+contract_path: "contracts/risk-policy.v1.json"
+artifact_digest: "REPLACE_POLICY_ARTIFACT_DIGEST"
+
+infrastructure:
+tool: "terraform"
+version: "REPLACE_TERRAFORM_VERSION"
+configuration_reference: "REPLACE_INFRASTRUCTURE_REFERENCE"
+plan_digest: "REPLACE_TERRAFORM_PLAN_DIGEST"
+
+data:
+evaluation_dataset:
+dataset_id: "REPLACE_DATASET_ID"
+dataset_version: "REPLACE_DATASET_VERSION"
+provenance_reference: "REPLACE_DATASET_PROVENANCE_REFERENCE"
+
+feature_pipeline:
+version: "REPLACE_FEATURE_PIPELINE_VERSION"
+
+evaluation:
+contract_path: "contracts/evaluation-gates.v1.json"
+evaluation_run_id: "REPLACE_EVALUATION_RUN_ID"
+evidence_reference: "REPLACE_EVALUATION_EVIDENCE_REFERENCE"
+
+model_quality:
+status: "pending"
+precision: null
+recall: null
+pr_auc: null
+roc_auc: null
+false_positive_rate: null
+
+calibration:
+status: "pending"
+evidence_reference: "REPLACE_CALIBRATION_EVIDENCE_REFERENCE"
+
+cohort_analysis:
+status: "pending"
+evidence_reference: "REPLACE_COHORT_EVIDENCE_REFERENCE"
+
+performance:
+status: "pending"
+api_p95_ms: null
+validation_p95_ms: null
+inference_p95_ms: null
+end_to_end_p95_ms: null
+
+reliability:
+status: "pending"
+evidence_reference: "REPLACE_RELIABILITY_EVIDENCE_REFERENCE"
+
+security:
+status: "pending"
+critical_findings: null
+evidence_reference: "REPLACE_SECURITY_EVIDENCE_REFERENCE"
+
+auditability:
+status: "pending"
+evidence_reference: "REPLACE_AUDIT_EVIDENCE_REFERENCE"
+
+release_gates:
+model_quality_passed: false
+performance_passed: false
+reliability_passed: false
+security_passed: false
+auditability_passed: false
+provenance_verified: false
+rollback_plan_verified: false
+
+approvals:
+security:
+status: "pending"
+approved_by: null
+approved_at: null
+evidence_reference: null
+
+engineering:
+status: "pending"
+approved_by: null
+approved_at: null
+evidence_reference: null
+
+release_authority:
+status: "pending"
+approved_by: null
+approved_at: null
+evidence_reference: null
+
+deployment:
+strategy: "controlled"
+target_environment: "development"
+deployment_reference: "REPLACE_DEPLOYMENT_REFERENCE"
+
+rollback:
+supported: false
+previous_release_id: "REPLACE_PREVIOUS_RELEASE_ID"
+procedure_reference: "REPLACE_ROLLBACK_PROCEDURE_REFERENCE"
+
+post_deployment:
+smoke_tests:
+status: "pending"
+evidence_reference: null
+
+monitoring:
+status: "pending"
+dashboard_reference: "REPLACE_MONITORING_DASHBOARD_REFERENCE"
+
+incident_contact:
+team: "REPLACE_RESPONSIBLE_TEAM"
+contact_reference: "REPLACE_CONTACT_REFERENCE"
+
+notes:
+limitations: []
+known_risks: []
+release_notes: "REPLACE_RELEASE_NOTES"
