@@ -39,13 +39,13 @@
     "requireDecisionAuditEvidence": true,
     "failClosedOnRequiredDependencyFailure": true
   },
-  "validation": {
-    "rejectInvalidSchema": true,
-    "rejectMissingTransactionId": true,
-    "rejectMissingTenantContext": true,
-    "rejectInvalidRiskScore": true,
-    "requireIdempotency": true
-  },
+"validation": {
+  "rejectInvalidSchema": true,
+  "rejectMissingTransactionId": true,
+  "rejectMissingTenantContext": true,
+  "abstainOnInvalidModelRiskScore": true,
+  "requireIdempotency": true
+},
   "humanReview": {
     "requiredForReviewDecision": true,
     "requireVerifiedReviewerIdentity": true,
