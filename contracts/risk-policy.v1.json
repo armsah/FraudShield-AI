@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "fraudshield-risk-policy",
+  "policyVersion": "1.0.0",
+  "status": "PROVISIONAL",
+  "description": "Baseline deterministic fraud risk policy for FraudShield AI.",
+  "score": {
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "higherMeansMoreRisk": true
+  },
+  "decisions": {
+    "APPROVE": {
+      "minimumScore": 0.0,
+      "maximumScoreExclusive": 0.3,
+      "description": "Low-risk transaction."
+    },
+    "REVIEW": {
+      "minimumScore": 0.3,
+      "maximumScoreExclusive": 0.7,
+      "description": "Transaction requires additional review."
+    },
+    "DECLINE": {
+      "minimumScore": 0.7,
+      "maximumScoreInclusive": 1.0,
+      "description": "High-risk transaction."
+    },
+    "ABSTAIN": {
+      "description": "A reliable risk decision cannot be produced."
+    }
+  },
+  "security": {
+    "requireAuthentication": true,
+    "deriveTenantFromVerifiedIdentity": true,
+    "enforceTenantIsolation": true,
+    "requireAuthorizationForConsequentialActions": true,
+    "requireHumanApprovalWhenPolicyRequires": true,
+    "allowModelToExecutePrivilegedActions": false,
+    "requireDecisionAuditEvidence": true,
+    "failClosedOnRequiredDependencyFailure": true
+  },
+  "validation": {
+    "rejectInvalidSchema": true,
+    "rejectMissingTransactionId": true,
+    "rejectMissingTenantContext": true,
+    "rejectInvalidRiskScore": true,
+    "requireIdempotency": true
+  },
+  "humanReview": {
+    "requiredForReviewDecision": true,
+    "requireVerifiedReviewerIdentity": true,
+    "requireApprovalAuditTrail": true,
+    "bindApprovalToExactOperation": true,
+    "bindApprovalToResource": true,
+    "bindApprovalToPolicyVersion": true
+  },
+  "failureHandling": {
+    "inferenceUnavailable": "ABSTAIN",
+    "missingRequiredFeatures": "ABSTAIN",
+    "invalidRiskScore": "ABSTAIN",
+    "policyEngineUnavailable": "ABSTAIN",
+    "auditPersistenceUnavailable": "ABSTAIN",
+    "unauthorizedRequest": "REJECT_REQUEST",
+    "invalidTransactionSchema": "REJECT_REQUEST",
+    "tenantIdentityMismatch": "REJECT_REQUEST"
+  },
+  "audit": {
+    "enabled": true,
+    "recordTransactionId": true,
+    "recordTenantId": true,
+    "recordModelVersion": true,
+    "recordPolicyVersion": true,
+    "recordRiskScore": true,
+    "recordDecision": true,
+    "recordDecisionTimestamp": true,
+    "recordReasonCodes": true
+  }
+}

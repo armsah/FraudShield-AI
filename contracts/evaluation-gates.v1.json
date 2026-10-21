@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "evaluationId": "fraudshield-evaluation-gates",
+  "evaluationVersion": "1.0.0",
+  "status": "PROVISIONAL",
+  "description": "Evaluation requirements and provisional quality gates for FraudShield AI.",
+  "modelEvaluation": {
+    "metrics": [
+      "precision",
+      "recall",
+      "f1_score",
+      "roc_auc",
+      "pr_auc",
+      "false_positive_rate",
+      "false_negative_rate"
+    ],
+    "minimumPrecision": 0.85,
+    "minimumRecall": 0.8,
+    "minimumRocAuc": 0.85,
+    "minimumPrAuc": 0.7,
+    "maximumFalsePositiveRate": 0.05,
+    "requireThresholdCalibration": true,
+    "requireTemporalHoldout": true,
+    "requireLeakageChecks": true,
+    "requireConfidenceIntervals": true
+  },
+  "cohortEvaluation": {
+    "required": true,
+    "dimensions": [
+      "tenant",
+      "transaction_amount_band",
+      "transaction_channel",
+      "geographic_region",
+      "customer_segment"
+    ],
+    "requireMinimumSampleSize": true,
+    "requireCohortMetricReporting": true,
+    "requireCohortRegressionReview": true
+  },
+  "dataQuality": {
+    "requireSchemaValidation": true,
+    "requireFeatureProvenance": true,
+    "requireMissingValueAnalysis": true,
+    "requireDuplicateDetection": true,
+    "requireLabelQualityAssessment": true,
+    "requireDelayedLabelHandling": true
+  },
+  "performance": {
+    "apiAcceptanceP95Milliseconds": 200,
+    "validationP95Milliseconds": 100,
+    "inferenceP95Milliseconds": 300,
+    "endToEndDecisionP95Milliseconds": 1000
+  },
+  "securityGates": {
+    "requireAuthenticationTests": true,
+    "requireAuthorizationTests": true,
+    "requireTenantIsolationTests": true,
+    "requireApprovalBindingTests": true,
+    "requireAuditIntegrityTests": true,
+    "requireDependencyFailureTests": true,
+    "maximumCriticalSecurityFindings": 0
+  },
+  "reliabilityGates": {
+    "requireIdempotencyTests": true,
+    "requireRetryTests": true,
+    "requireDeadLetterQueueTests": true,
+    "requireReplayTests": true,
+    "requireFailureRecoveryTests": true
+  },
+  "releaseRequirements": {
+    "requireModelVersion": true,
+    "requirePolicyVersion": true,
+    "requireDatasetVersion": true,
+    "requireEvaluationEvidence": true,
+    "requireSecurityReview": true,
+    "requireReleaseManifest": true,
+    "requireHumanReleaseApproval": true
+  }
+}
